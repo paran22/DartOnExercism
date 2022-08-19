@@ -1,9 +1,9 @@
 int score(String word) {
-  int _answer = 0;
+  int answer = 0;
   List<String> characters = word.toUpperCase().split('');
 
-  characters.forEach((character) => _answer += _getValues(character));
-  return _answer;
+  characters.forEach((character) => answer += _getValues(character));
+  return answer;
 }
 
 int _getValues(String char) {

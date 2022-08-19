@@ -2,10 +2,10 @@ class SpaceAge {
   final int seconds_of_one_earth_year = 31557600;
 
   double age({required String planet, required int seconds}) {
-    double _oneEarthYear = EarthYear.getOneEarthYear(planet);
-    double _age = _convertToEarthAge(seconds) / _oneEarthYear;
+    double oneEarthYear = EarthYear.getOneEarthYear(planet);
+    double age = _convertToEarthAge(seconds) / oneEarthYear;
 
-    return double.parse(_age.toStringAsFixed(2));
+    return double.parse(age.toStringAsFixed(2));
   }
 
   double _convertToEarthAge(int seconds) => seconds / seconds_of_one_earth_year;

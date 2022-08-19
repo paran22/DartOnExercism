@@ -8,10 +8,10 @@ class ArmstrongNumbers {
 
   num _getSumOfEachNum(int number) {
     List<String> numbers = number.toString().split('');
-    num _sum = 0;
+    num sum = 0;
     numbers.forEach((number) {
-      _sum += pow(int.parse(number), numbers.length);
+      sum += pow(int.parse(number), numbers.length);
     });
-    return _sum;
+    return sum;
   }
 }
