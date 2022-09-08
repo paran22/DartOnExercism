@@ -11,19 +11,19 @@ class PascalsTriangle {
         answer.add([1, 1]);
         continue;
       }
-      answer.add(createRow(answer[i - 1], i));
+      answer.add(createRow(answer[i - 1]));
     }
     return answer;
   }
 
-  List<int> createRow(List<int> before, int count) {
+  List<int> createRow(List<int> before) {
     List<int> row = [];
-    for (int i = 0; i < count + 1; i++) {
+    for (int i = 0; i < before.length + 1; i++) {
       if (i == 0) {
         row.add(1);
         continue;
       }
-      if (i == count) {
+      if (i == before.length) {
         row.add(1);
         continue;
       }
