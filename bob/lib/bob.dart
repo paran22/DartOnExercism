@@ -12,7 +12,7 @@ class Bob {
 
   bool _isQuestion(String question) => question.endsWith('?');
   bool _isYelling(String question) => !question.contains(RegExp('[a-z]')) && question.contains(RegExp('[A-Z]'));
-  bool _isNoWord(String question) => !question.contains(RegExp('[a-z]||[A-Z]')) || question.isEmpty;
+  bool _isNoWord(String question) => question.isEmpty;
   String _removeSpaceAndDigit(String question) => question.trim().replaceAll(RegExp('[0-9]'), '');
 }
 
