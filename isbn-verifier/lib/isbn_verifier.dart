@@ -1,23 +1,19 @@
 bool isValid(String isbn) {
   if (isbn.contains(RegExp('[A-Wa-w]|[Y-Zy-z]'))) return false;
   if (isbn.contains('X') && isbn.indexOf('X') != isbn.length - 1) return false;
+  if (isbn.replaceAll('-', '').length != 10) return false;
 
-  List<String> isbnList = isbn.replaceAll(RegExp('[-]'), '').split('');
-  if (isbnList.length != 10) return false;
-
-  int sum = formulate(isbnList);
+  int sum = isbn
+      .replaceAll(RegExp('[-]'), '')
+      .split('')
+      .asMap()
+      .map((index, element) => MapEntry(index, convertToInt(element) * (10 - index)))
+      .values
+      .reduce((value, element) => value + element);
 
   return sum % 11 == 0;
 }
 
-int formulate(List<String> isbnList) {
-  int sum = 0;
-  for (int i = 0; i < isbnList.length; i++) {
-    int num = isbnList[i] == 'X' ? 10 : int.parse(isbnList[i]);
-    sum += num * (10 - i);
-  }
-  return sum;
+int convertToInt(String value) {
+  return value == 'X' ? 10 : int.parse(value);
 }
-
-
-
