@@ -1,12 +1,13 @@
 class Raindrops {
   String convert(int number) {
-    String sound = '';
-    if (number % 3 == 0) sound += 'Pling';
-    if (number % 5 == 0) sound += 'Plang';
-    if (number % 7 == 0) sound += 'Plong';
-    if (sound == '') sound = number.toString();
+    StringBuffer sound = StringBuffer();
 
-    return sound;
+    if (number % 3 == 0) sound.write('Pling');
+    if (number % 5 == 0) sound.write('Plang');
+    if (number % 7 == 0) sound.write('Plong');
+    if (sound.isEmpty) sound.write(number.toString());
+
+    return sound.toString();
   }
 
 }
